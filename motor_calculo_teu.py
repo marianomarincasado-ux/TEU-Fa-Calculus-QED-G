@@ -59,19 +59,57 @@ def get_k_geo(mu, A):
 
 def pade_prediction(coeffs_list):
     """
-    Estimación simple tipo Padé [2/2] para C6 basada en la tendencia C1-C5.
-    (Simulación de la proyección matemática pura).
+    Cálculo riguroso de C6 usando Padé-Borel [2/2].
+    1. Transformada de Borel: b_n = C_n / n!
+    2. Aproximante de Padé [2/2] a la serie b(x).
+    3. Transformada Inversa: C_6 = b_6 * 6!
     """
-    # Usamos una aproximación racional simple para emular Padé
-    def rational_func(x, a, b, c, d, e):
-        return (a + b*x + c*x**2) / (1 + d*x + e*x**2)
+    import math
 
-    x_vals = np.array([1, 2, 3, 4, 5])
-    y_vals = np.array(coeffs_list)
+    # 1. Borel Transform (b0 es 0 en QED convencional para a_e, empezamos en n=1)
+    # La serie es S = c1*x + c2*x^2 ...
+    # Borel B(t) = c1*t + (c2/2!)*t^2 ...
+
+    # Coeficientes b_n
+    b = []
+    for i, c_val in enumerate(coeffs_list):
+        n = i + 1
+        b.append(c_val / math.factorial(n))
+
+    # Tenemos b1, b2, b3, b4, b5.
+    # Padé [2/2] para B(t)/t = b1 + b2*t + b3*t^2 + b4*t^3 + b5*t^4
+    # Queremos predecir el término b6 (que corresponde a t^5 en B(t)/t -> t^6 en B(t))
+
+    # Resolvemos el sistema lineal para el denominador Q(t) = 1 + q1*t + q2*t^2
+    # Sistema de Toeplitz para Padé [L/M] con L=2, M=2
+    # b3*q1 + b2*q2 = -b4
+    # b4*q1 + b3*q2 = -b5
+
+    # Matriz A y vector B
+    A_mat = np.array([[b[2], b[1]],
+                      [b[3], b[2]]])
+    Y_vec = np.array([-b[3], -b[4]])
+
     try:
-        # Ajuste forzado a los 5 puntos para proyectar el 6
-        popt, _ = curve_fit(rational_func, x_vals, y_vals, maxfev=10000)
-        c6_pred = rational_func(6, *popt)
+        q = np.linalg.solve(A_mat, Y_vec) # q1, q2
+        q1, q2 = q[0], q[1]
+
+        # Numerador P(t) = p0 + p1*t + p2*t^2
+        # p0 = b1
+        # p1 = b2 + b1*q1
+        # p2 = b3 + b2*q1 + b1*q2
+
+        # Recurrencia para coeficientes de Taylor d_n de P(t)/Q(t)
+        # d_k + d_{k-1}*q1 + d_{k-2}*q2 = 0  para k > L
+        # Queremos d5 (que es b6)
+        # d5 = - (d4*q1 + d3*q2)
+        # Donde d3=b4, d4=b5
+
+        b6 = - (b[4]*q1 + b[3]*q2)
+
+        # Inversa Borel: C6 = b6 * 6!
+        c6_pred = b6 * math.factorial(6)
+
         return c6_pred
     except:
         return np.nan
@@ -211,11 +249,11 @@ alpha_h = k_geo_h * D_SCALE_REAL
 g_h = (hbar * c / M_E_REAL**2) * np.exp(-2 * ALPHA_INV_REAL / k_geo_h)
 
 # ==============================================================================
-# IMPRESIÓN DE RESULTADOS
+# IMPRESIÓN DE RESULTADOS FORMATEADOS PARA EL PAPER
 # ==============================================================================
 
 print("\n" + "="*80)
-print("   RESULTADOS")
+print("   RESULTADOS LISTOS PARA EL PAPER (COPIAR Y PEGAR)")
 print("="*80)
 
 print("\n--- TABLA 1: ANÁLISIS DE ATRACTORES (GEMELOS OSCUROS) ---")
