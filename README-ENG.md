@@ -27,6 +27,10 @@ These scripts computationally demonstrate how the interaction between particle s
     * **What it does:** Combines the physical mass scale derived from CODATA with the stochastic Gauge symmetry filter.
     * **Physics:** Filters the available friction energy in the vacuum through 10 million Monte Carlo steps. The electron preserves its real SI mass (kg) with a convergence error of `0.01%`, while the photon multiplies this physical scale by absolute zero. 
 
+* 📄 **`teu_full_dirac_eigenvalues.py` (Full Dirac Matrix Diagonalization)**
+    * **What it does:** Constructs the complete $4 \times 4$ Dirac mass operator using standard $\gamma^\mu$ matrices and injects the TEU fractal connection vector $\Gamma_\mu$. It then uses linear algebra (`np.linalg.eigvals`) to diagonalize the operator.
+    * **Physics:** Proves that the electron mass is not a scalar tautology, but a strict eigenvalue of the Dirac-TEU equation. The script naturally extracts the 4 spinor states: two positive eigenvalues (matter, spin up/down) and two negative eigenvalues (antimatter/positrons, spin up/down) matching the exact $9.109 \times 10^{-31}$ kg scale with a $99.9989\%$ precision. It geometrically derives the Dirac sea.
+
 ### 2. Unification: Gravity as Attenuated Electrodynamics
 Scripts aimed at demonstrating that macroscopic kinematics (Newton/Einstein) are topologically isomorphic to attenuated quantum electrodynamics.
 
@@ -42,6 +46,7 @@ Scripts used to calibrate the vacuum geometry by isolating divergences in the pe
     * **Physics:** Proves that by discounting the "spurious volume" from forbidden topological gaps in the 5th-order integral ($C_5$), the current perturbative consensus ($\approx 6.80$) naturally collapses to the value predicted by the TEU model ($\approx 6.60$).
 * 📄 **`teu_g2_anomaly_solver.py`** *(See Run Log below)*
     * **What it does:** Reconstructs the anomalous magnetic moment of the electron using the TEU geometric ansatz instead of Feynman diagrams.
+
 
 ---
 
