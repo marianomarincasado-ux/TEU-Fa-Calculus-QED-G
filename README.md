@@ -1,5 +1,3 @@
-# TEU-Fa-Calculus-QED-G
-TEU
 # Topological Electron Universe (TEU) - Computational Physics Repository
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
@@ -14,7 +12,7 @@ El modelo TEU propone que el vacío cuántico posee una topología fractal sub-d
 
 ## 📂 Directorio de Scripts y Validación Física
 
-Los scripts están divididos en tres áreas fundamentales de la física: **Génesis de la Masa y Simetrías**, **Unificación Gravitatoria**, y **Auditoría QED ($g-2$)**.
+Los scripts están divididos en tres áreas fundamentales de la física: **Génesis de la Masa y Simetrías**, **Unificación Gravitatoria** y **Auditoría QED ($g-2$)**.
 
 ### 1. Génesis de la Masa y Preservación de Simetrías Gauge
 Estos scripts demuestran computacionalmente cómo la interacción entre el espín de las partículas y la rugosidad fractal del vacío genera la inercia (masa), sin romper el electromagnetismo clásico.
@@ -35,38 +33,23 @@ Scripts destinados a demostrar que la cinemática macroscópica (Newton/Einstein
 * 📄 **`teu_quantum_gravity_unification.py`**
     * **Qué hace:** Evalúa la interacción gravitatoria como una superposición coherente de la radiación *Zitterbewegung* filtrada por la profundidad del vacío ($\mathcal{D} \approx 51.52$).
     * **Física:** Deriva el valor exacto de la Constante de Gravitación Universal ($G \approx 6.674 \times 10^{-11}$) partiendo **exclusivamente** de parámetros electromagnéticos ($\alpha$) y geométricos, sin utilizar medidas de balanzas de torsión como *inputs*.
-* *(Si tienes otros scripts como el efecto GPS o Mercurio, añádelos aquí con el mismo formato).*
 
 ### 3. Auditoría QED y Análisis del $g-2$
 Scripts utilizados para calibrar la geometría del vacío aislando las divergencias en los coeficientes perturbativos de la Electrodinámica Cuántica.
 
-* 📄 **`teu_vegas_integration.py`** *(Ejemplo)*
+* 📄 **`teu_vegas_integration.py`**
     * **Qué hace:** Implementa una variante del algoritmo de Monte Carlo VEGAS incorporando un Filtro de Densidad Fractal $\mathcal{W}(x; \mu, A)$.
     * **Física:** Demuestra que al descontar el "volumen espurio" de las lagunas topológicas prohibidas en la integral de 5º orden ($C_5$), el valor perturbativo actual ($\approx 6.80$) colapsa de forma natural al valor predicho por el modelo TEU ($\approx 6.60$).
+* 📄 **`teu_g2_anomaly_solver.py`** *(Ver Log de Ejecución abajo)*
+    * **Qué hace:** Reconstruye el momento magnético anómalo del electrón utilizando el ansatz geométrico TEU en lugar de diagramas de Feynman.
 
 ---
 
 ## ⚙️ Requisitos y Ejecución
 
 Todos los scripts están escritos en **Python 3** y diseñados para ser ligeros, transparentes y auditables. No requieren hardware especializado.
-
-**Dependencias:**
-```bash
-pip install numpy scipy
-
-python teu_unified_gauge_mass.py
-
-Este código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. [Añadir DOI aquí cuando lo tengas]Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.com
--------------------------------------
-
-
-
-
-
-
-
-
-VERIFICATION RUN LOG (2026-02-23)
+Ejecución de un test de validación: (Ejemplo de arranque desde terminal)Bashpython teu_unified_gauge_mass.py
+🔬 Ejemplo de Ejecución: Auditoría del $g-2$A continuación, se muestra la salida real de la terminal al ejecutar el solver de la anomalía magnética, demostrando una precisión asombrosa respecto al Modelo Estándar:PlaintextVERIFICATION RUN LOG (2026-02-23)
 ------------------------------------------------
 Executed script: teu_g2_anomaly_solver.py
 Method: Topological integration vs QED Perturbation
@@ -81,3 +64,8 @@ CONCLUSION:
 The TEU geometric ansatz reproduces the QED coefficients 
 (Schwinger, Sommese, Laporta, Kinoshita) with a precision 
 of 10^-10 without employing Feynman diagrams.
+📜 Citas y ReferenciasEste código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. [DOI pendiente de asignación]Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
+
+**Dependencias:** (Instalación de librerías matemáticas)
+```bash
+pip install numpy scipy
