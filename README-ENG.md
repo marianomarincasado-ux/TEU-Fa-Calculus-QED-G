@@ -48,14 +48,8 @@ Scripts used to calibrate the vacuum geometry by isolating divergences in the pe
 ## ⚙️ Requirements and Execution
 
 All scripts are written in **Python 3** and are designed to be lightweight, transparent, and auditable. No specialized hardware is required.
-
-**Dependencies:**
-```bash
-pip install numpy scipy
-
-python teu_unified_gauge_mass.py
-
-VERIFICATION RUN LOG (2026-02-23)
+Running a validation test: To execute the unified simulation, open your terminal, navigate to the folder, and run:Bashpython teu_unified_gauge_mass.py
+🔬 Sample Output: Verification RunPlaintextVERIFICATION RUN LOG (2026-02-23)
 ------------------------------------------------
 Executed script: teu_g2_anomaly_solver.py
 Method: Topological integration vs QED Perturbation
@@ -70,10 +64,8 @@ CONCLUSION:
 The TEU geometric ansatz reproduces the QED coefficients 
 (Schwinger, Sommese, Laporta, Kinoshita) with a precision 
 of 10^-10 without employing Feynman diagrams.
+📜 Citations and ReferencesThis code complements the formal research manuscript. If you use this code or the TEU model in your research, please cite the official Preprint on Zenodo:Marín Casado, M. J. (2026). Application of $F^\alpha$-Calculus to the Anomalous Magnetic Moment of the Electron: A Topological Derivation of QED Coefficients. Zenodo. [Add DOI here when available]Author: M. J. Marín Casado (Independent Researcher)Contact: mariano.marin.casado@gmail.comLicense: MIT License
 
-his code complements the formal research manuscript.
-If you use this code or the TEU model in your research, please cite the official Preprint on Zenodo:
-Marín Casado, M. J. (2026). Application of $F^\alpha$-Calculus to the Anomalous Magnetic Moment of the Electron:
-A Topological Derivation of QED Coefficients. Zenodo. [Add DOI here when available]Author: M. J. Marín Casado (Independent Researcher)
-Contact: mariano.marin.casado@gmail.com
-License: MIT License
+**Dependencies:** To install the required mathematical libraries, run the following command in your terminal/console:
+```bash
+pip install numpy scipy
