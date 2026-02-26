@@ -26,6 +26,9 @@ Estos scripts demuestran computacionalmente cómo la interacción entre el espí
 * 📄 **`teu_unified_gauge_mass.py` (El Motor Híbrido)**
     * **Qué hace:** Combina la escala de masa física derivada de CODATA con el filtro estocástico de simetría de Gauge.
     * **Física:** Filtra la energía de fricción disponible en el vacío a través de 10 millones de pasos (Monte Carlo). El electrón conserva su masa real en el Sistema Internacional (kg) con un error de convergencia del `0.01%`, mientras que el fotón multiplica esta escala física por cero absoluto. 
+* 📄 **`teu_full_dirac_eigenvalues.py` (Diagonalización Completa de la Matriz de Dirac)**
+    * **Qué hace:** Construye el operador de masa de Dirac completo de $4 \times 4$ utilizando las matrices $\gamma^\mu$ estándar e inyecta el vector de conexión fractal TEU $\Gamma_\mu$. Posteriormente, utiliza álgebra lineal (`np.linalg.eigvals`) para diagonalizar el operador.
+    * **Física:** Demuestra que la masa del electrón no es una tautología escalar, sino un autovalor estricto de la ecuación de Dirac-TEU. El script extrae de forma natural los 4 estados espinoriales: dos autovalores positivos (materia, espín arriba/abajo) y dos autovalores negativos (antimateria/positrones, espín arriba/abajo), coincidiendo con la escala exacta de $9.109 \times 10^{-31}$ kg con una precisión del $99.9989\%$. Constituye una derivación puramente geométrica del mar de Dirac.
 
 ### 2. Unificación: Gravedad como Electrodinámica Atenuada
 Scripts destinados a demostrar que la cinemática macroscópica (Newton/Einstein) es topológicamente isomorfa a la electrodinámica cuántica atenuada.
