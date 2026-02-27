@@ -90,7 +90,9 @@ CONCLUSION:
 The TEU geometric ansatz reproduces the QED coefficients 
 (Schwinger, Sommese, Laporta, Kinoshita) with a precision 
 of 10^-10 without employing Feynman diagrams.
-📜 Citations and ReferencesThis code complements the formal research manuscript. If you use this code or the TEU model in your research, please cite the official Preprint on Zenodo:Marín Casado, M. J. (2026). Application of $F^\alpha$-Calculus to the Anomalous Magnetic Moment of the Electron: A Topological Derivation of QED Coefficients. Zenodo. [Add DOI here when available]Author: M. J. Marín Casado (Independent Researcher)Contact: mariano.marin.casado@gmail.comLicense: MIT License
+📜 Citations and ReferencesThis code complements the formal research manuscript. If you use this code or the TEU model in your research, please cite the official Preprint on Zenodo:Marín Casado, M. J. (2026). Application of $F^\alpha$-Calculus to the Anomalous Magnetic Moment of the Electron: A Topological Derivation of QED Coefficients. Zenodo. [[Add DOI here when available]](https://doi.org/10.5281/zenodo.18807956) 
+Author: M. J. Marín Casado (Independent Researcher)
+Contact: mariano.marin.casado@gmail.comLicense: MIT License
 
 **Dependencies:** To install the required mathematical libraries, run the following command in your terminal/console:
 ```bash
