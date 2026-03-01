@@ -94,6 +94,15 @@ Ensure you have the required dependencies installed:
 pip install numpy scipy vegas
 ---
 
+<a name="español"></a>🇪🇸 Español
+¿Qué hace este script?
+Este script proporciona la prueba computacional definitiva para el marco teórico del Universo Electrónico Topológico (TEU). Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente ab initio, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad de campos escalares (Mecanismo de Higgs) a bajas energías.Al ejecutar una integración vectorizada sobre 1,5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA para el electrón con una asombrosa desviación de tan solo un 0.000010 %.
+
+¿Qué hace diferente a este script?
+(Continuo vs. Discreto)Los primeros intentos computacionales de este repositorio se basaban en una Caminata Aleatoria (Random Walk) discreta usando Movimiento Browniano Fraccionario sobre una matriz estática de la Escalera de Cantor. Aunque ese modelo heurístico probó cualitativamente la emergencia de la inercia por sub-difusión, sufría de un severo aliasing geométrico. Los cálculos de punto flotante sobre bordes fractales afilados producían distribuciones de "cola pesada" y explosiones inmanejables de la varianza (singularidades), haciendo que la masa divirgiera.Este script resuelve el problema de la discretización. En lugar de una cuadrícula discreta, emplea el integrador multidimensional adaptativo de Monte Carlo VEGAS para evaluar un hiperespacio continuo. Se apoya en el $F^\alpha$-Calculus de Parvate y Gangal, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$). La rejilla adaptativa de VEGAS descubre fluidamente las regiones de alta impedancia topológica, esquivando las singularidades de los bordes y estabilizando la varianza hacia límites físicos exactos.Cómo ejecutarloAsegúrate de tener instaladas las dependencias necesarias:Bashpip install numpy scipy vegas
+
+Inicia el simulador:Bashpython teu_vegas_ab_initio_mass_emergence.py
+
 ## ⚙️ Requisitos y Ejecución
 
 Todos los scripts están escritos en **Python 3** y diseñados para ser ligeros, transparentes y auditables. No requieren hardware especializado.
