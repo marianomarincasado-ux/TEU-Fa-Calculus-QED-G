@@ -151,4 +151,23 @@ RESULTS:
 > TEU Model g-factor:      2.002319304561
 
 > Delta (g-2):             2.0954e-10
+--------------------------------------------
+nitio_mass_emergence.py
+=================================================================
+ TEU ENGINE: CONTINUOUS STOCHASTIC SIMULATION (AB INITIO VEGAS)  
+=================================================================
+ [*] Effective Dimension (mu)  : 0.757603135
+ [*] Lacunarity (A)            : 0.596980759
+ [*] Geometric Rigidity (K_geo): 2.659456
+ [*] Scale Depth (D)           : 51.527840 folds
+-----------------------------------------------------------------
+ [>] Phase 1: Adaptive Spatial Grid Training...
+     (Discovering geometric roughness. 10 itns x 60k evals)
+ [>] Phase 2: Massive Monte Carlo Extraction...
+     (Computing 1.5 million vectorized Feynman Histories)
+ [>] Topological Friction (Integral): 1.105269e-01 ± 1.34e-06
+-----------------------------------------------------------------
+ [>] EMERGENT ELECTRON MASS (m_e)   : 9.109383e-31 kg
+ [>] CODATA STANDARD MASS           : 9.109384e-31 kg
+ [>] Relative Deviation             : 0.000010 %
 
