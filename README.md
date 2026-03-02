@@ -1,4 +1,4 @@
-# Topological Electron Universe (TEU) - Computational Physics Repository
+`º`# Topological Electron Universe (TEU) - Computational Physics Repository
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18807956.svg)](https://doi.org/10.5281/zenodo.18807956)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Physics](https://img.shields.io/badge/Physics-QED%20%7C%20Quantum%20Gravity-purple)
@@ -68,64 +68,45 @@ Scripts utilizados para calibrar la geometría del vacío aislando las divergenc
         * $n=4$: `-1.91225` (Matches Kinoshita)
         * $n=5$: **`6.60291`** (TEU Topological Limit vs Aoyama's Euclidean 6.80)
 
-
-# TEU Continuous Stochastic Simulator (VEGAS Ab Initio)
-****  python teu_vegas_ab_initio_mass_emergence.py  ** 
+<a name="español"></a>
+# 🌌 TEU: Topological Electrodynamics of the Universe
+**Continuous Stochastic Simulator & Quantum Gravity Regularization**
 
 🌍 *[Read in English](#english) | [Leer en Español](#español)*
 
----
-<a name="english"></a>
-## 🇬🇧 English
+Bienvenido al repositorio oficial de simulaciones estocásticas del modelo **TEU**. Este proyecto proporciona las pruebas computacionales definitivas de que el vacío cuántico se comporta como un atractor fractal de Cantor, permitiendo la emergencia de masa y la regularización de la gravedad cuántica sin necesidad de campos escalares adicionales ni Teoría de Cuerdas.
 
-### What does this script do?
-This script provides the ultimate computational proof for the **Topological Electron Universe (TEU)** framework. It calculates the emergent inertial mass of the electron ($m_e$) entirely *ab initio*, starting from the bare Planck Mass and applying geometric topological friction, eliminating the need for scalar fields (Higgs Mechanism) at low energies. 
-
-By executing a vectorized integration over 1.5 million Feynman histories, the simulator successfully recovers the exact CODATA mass of the electron with an astonishing **deviation of only 0.000010 %**.
-
-### Why is this script different? (Continuous vs. Discrete)
-Earlier computational attempts in this repository relied on a discrete Fractional Brownian Motion (fBM) Random Walk over a rigidly rendered Cantor Staircase array. While that heuristic model qualitatively proved the emergence of inertia via sub-diffusion, it suffered from severe **geometric aliasing**. Floating-point calculations over sharp fractal boundaries produced heavy-tailed distributions and unmanageable variance explosions (singularities), causing the mass gap to diverge.
-
-**This script solves the discretization problem.** Instead of a discrete grid, it employs the adaptive Monte Carlo multidimensional integrator **VEGAS** to evaluate a continuous hyperspace. It leverages the **Parvate-Gangal $F^\alpha$-Calculus** by analytically mapping the Euclidean metric into a Hausdorff fractal measure through a Continuous Fractional Jacobian ($\mathcal{J}_\mu(r)$). VEGAS's adaptive grid seamlessly discovers the regions of high topological impedance, bypassing boundary singularities and stabilizing the variance to physical bounds.
-
-### How to Run
-Ensure you have the required dependencies installed:
-```bash
-pip install numpy scipy vegas
 ---
 
-<a name="español"></a>🇪🇸 Español
-¿Qué hace este script?
-Este script proporciona la prueba computacional definitiva para el marco teórico del Universo Electrónico Topológico (TEU). Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente ab initio, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad de campos escalares (Mecanismo de Higgs) a bajas energías.Al ejecutar una integración vectorizada sobre 1,5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA para el electrón con una asombrosa desviación de tan solo un 0.000010 %.
+## 📂 Módulos Computacionales Principales
 
-    ¿Qué hace diferente a este script?
-    (Continuo vs. Discreto)Los primeros intentos computacionales de este repositorio se basaban en una Caminata Aleatoria (Random Walk) discreta usando Movimiento Browniano Fraccionario sobre una matriz estática de la Escalera de Cantor. Aunque ese modelo heurístico probó cualitativamente la emergencia de la inercia por sub-difusión, sufría de un severo aliasing geométrico. Los cálculos de punto flotante sobre bordes fractales afilados producían distribuciones de "cola pesada" y explosiones inmanejables de la varianza (singularidades), haciendo que la masa divirgiera.Este script resuelve el problema de la discretización. En lugar de una cuadrícula discreta, emplea el integrador multidimensional adaptativo de Monte Carlo VEGAS para evaluar un hiperespacio continuo. Se apoya en el $F^\alpha$-Calculus de Parvate y Gangal, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$). La rejilla adaptativa de VEGAS descubre fluidamente las regiones de alta impedancia topológica, esquivando las singularidades de los bordes y estabilizando la varianza hacia límites físicos exactos.Cómo ejecutarloAsegúrate de tener instaladas las dependencias necesarias:Bashpip install numpy scipy vegas
-
-
-
-# Regularización Topológica de la Gravedad Cuántica #
-## `teu_vegas_quantum_gravity.py`: Regularización Topológica de la Gravedad Cuántica
-
+### 1. Emergencia de Masa Ab Initio (`teu_vegas_ab_initio_mass_emergence.py`)
 **¿Qué hace este script?**
-Demuestra computacionalmente que la Gravedad Cuántica es finita y renormalizable en 4 dimensiones cuando se asume que el vacío es un atractor fractal de Cantor, eliminando la necesidad de recurrir a la Teoría de Cuerdas o a dimensiones extra.
+Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente *ab initio*, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad del Mecanismo de Higgs a bajas energías. Al ejecutar una integración vectorizada sobre 1.5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA con una desviación de tan solo un **0.000010 %**.
 
-**¿En qué se diferencia del resto del proyecto?**
-Mientras que los otros motores se centran en el electromagnetismo (anomalía $g-2$) o en el sector electrodébil (masa de bosones y desintegración del muón), este script se enfrenta a la singularidad matemática más grave de la Teoría Cuántica de Campos (QFT): el infinito ultravioleta (UV) no renormalizable de la Relatividad General a escala microscópica.
+**¿Qué lo hace diferente? (Continuo vs. Discreto)**
+Los primeros intentos usaban una Caminata Aleatoria (Random Walk) discreta. Aunque probaba cualitativamente la inercia, sufría de *aliasing geométrico* (singularidades en los bordes fractales). Este script resuelve la discretización empleando el integrador continuo de Monte Carlo **VEGAS** sobre un hiperespacio, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$).Este script proporciona la prueba computacional definitiva para el marco teórico del Universo Electrónico Topológico (TEU). Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente ab initio, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad de campos escalares (Mecanismo de Higgs) a bajas energías.Al ejecutar una integración vectorizada sobre 1,5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA para el electrón con una asombrosa desviación de tan solo un 0.000010 %.
 
-**¿Qué calcula exactamente?**
+
+### 2. Regularización de la Gravedad Cuántica (`teu_vegas_quantum_gravity.py`)
+**¿Qué hace este script?**
+Demuestra computacionalmente que la Gravedad Cuántica es finita y renormalizable en 4 dimensiones. Somete a prueba el bucle gravitatorio desnudo de la Teoría Cuántica de Campos (que diverge al infinito $\sim 1/r^4$), demostrando que la atenuación topológica del "cero" fractal ahoga el infinito ultravioleta. Como resultado, arroja un tensor de curvatura finito y recupera la constante $G$ de Newton a partir de la Masa de Planck con asombrosa precisión. este script se enfrenta a la singularidad matemática más grave de la Teoría Cuántica de Campos (QFT): el infinito ultravioleta (UV) no renormalizable de la Relatividad General a escala microscópica.
 El script somete a prueba el bucle gravitatorio desnudo. En el Modelo Estándar, la autointeracción del gravitón diverge hacia el infinito ($\sim 1/r^4$) a distancias cortas, colapsando las ecuaciones. El código calcula la curvatura integral real del vacío y deriva, de forma pura y ab initio, la Constante de Gravitación Universal de Newton ($G$) estabilizada a partir de la Masa de Planck.
 
 **¿Cómo lo hace?**
 Utiliza el motor de integración estocástica Monte Carlo adaptativo (**VEGAS**) para explorar el hiperespacio en 4D. El algoritmo enfrenta la divergencia infinita de la gravedad cuántica clásica contra la atenuación topológica de la métrica TEU (gobernada por el Jacobiano Fraccionario, la porosidad de Cantor y la fase log-periódica de Moiré). El resultado demuestra que el "cero" fractal ahoga al infinito de la QFT, arrojando un tensor de curvatura finito y recuperando la constante $G$ con una precisión asombrosa respecto al valor de CODATA.
 
+---
 
-# Inicia el simulador:Bashpython teu_vegas_ab_initio_mass_emergence.py
+## ⚙️ Instalación y Dependencias
 
-## ⚙️ Requisitos y Ejecución
+Todos los scripts están escritos en **Python 3.8 o superior** y diseñados para ser ligeros, transparentes y auditables. No requieren hardware especializado.
 
-Todos los scripts están escritos en **Python 3** y diseñados para ser ligeros, transparentes y auditables. No requieren hardware especializado.
-Ejecución de un test de validación: (Ejemplo de arranque desde terminal)Bashpython teu_unified_gauge_mass.py
-🔬 Ejemplo de Ejecución: Auditoría del $g-2$A continuación, se muestra la salida real de la terminal al ejecutar el solver de la anomalía magnética, demostrando una precisión asombrosa respecto al Modelo Estándar:PlaintextVERIFICATION RUN LOG (2026-02-23)
+Puedes instalar todas las librerías matemáticas necesarias ejecutando el siguiente comando en tu terminal o consola:
+```bash
+pip install numpy scipy matplotlib pandas vegas
+Descripción de los motores utilizados:vegas: Algoritmo de integración estocástica Monte Carlo adaptativo. Es el núcleo computacional utilizado para evaluar las integrales de volumen en 4D y 8D, y para regularizar las divergencias ultravioletas.scipy: Utilizado para la evaluación de funciones especiales (como la función Gamma en el Jacobiano Fraccionario).numpy & pandas: Manejo de tensores, matrices dimensionales y procesamiento de datos empíricos.matplotlib: Generación de gráficas log-log y visualización de la envolvente fractal.🚀 Cómo ejecutar las simulacionesUna vez instaladas las dependencias, simplemente navega a la carpeta del proyecto desde tu terminal y ejecuta el script con Python. Por ejemplo:Bashpython teu_vegas_ab_initio_mass_emergence.py
+🔬 Ejemplo de Ejecución: Auditoría del $g-2$A continuación, se muestra la salida real de la terminal al ejecutar el solver de la anomalía magnética, demostrando la extrema precisión del modelo respecto al Modelo Estándar (QED):PlaintextVERIFICATION RUN LOG (2026-02-23)
 ------------------------------------------------
 Executed script: teu_g2_anomaly_solver.py
 Method: Topological integration vs QED Perturbation
@@ -140,28 +121,4 @@ CONCLUSION:
 The TEU geometric ansatz reproduces the QED coefficients 
 (Schwinger, Sommese, Laporta, Kinoshita) with a precision 
 of 10^-10 without employing Feynman diagrams.
-📜 Citas y ReferenciasEste código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. [[https://doi.org/10.5281/zenodo.18807956]](https://doi.org/10.5281/zenodo.18807956) 
-Autor: M. J. Marín Casado (Investigador Independiente)
-Contacto: mariano.marin.casado@gmail.com
-Licencia: MIT License
-
-**Dependencias:** (Instalación de librerías matemáticas)
-```bash
-pip install numpy scipy
-
-## ⚙️ Instalación y Requisitos (Dependencies)
-
-Para ejecutar las simulaciones estocásticas y los cálculos analíticos de este repositorio, es necesario tener instalado **Python 3.8 o superior**. 
-
-Las dependencias principales del proyecto incluyen herramientas de cálculo científico estándar y motores de integración multidimensional avanzada. Puedes instalar todas las librerías necesarias ejecutando el siguiente comando en tu terminal o consola:
-
-```bash
-pip install numpy scipy matplotlib pandas vegas
-Descripción de los motores utilizados:
-vegas: Algoritmo de integración estocástica Monte Carlo adaptativo. Es el núcleo computacional (Engine) utilizado para evaluar las integrales de volumen en 4D y 8D, y para regularizar las divergencias ultravioletas de la Gravedad Cuántica.
-
-scipy: Utilizado para la evaluación de funciones especiales (como la función Gamma en el Jacobiano Fraccionario) y algoritmos de optimización matemática.
-
-numpy & pandas: Manejo de tensores, matrices dimensionales y procesamiento de datos empíricos.
-
-matplotlib: Generación de gráficas log-log y visualización de la envolvente fractal del polvo de Cantor.
+📜 Citas y ReferenciasEste código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
