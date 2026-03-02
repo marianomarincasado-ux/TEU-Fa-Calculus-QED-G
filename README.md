@@ -98,10 +98,28 @@ pip install numpy scipy vegas
 ¿Qué hace este script?
 Este script proporciona la prueba computacional definitiva para el marco teórico del Universo Electrónico Topológico (TEU). Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente ab initio, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad de campos escalares (Mecanismo de Higgs) a bajas energías.Al ejecutar una integración vectorizada sobre 1,5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA para el electrón con una asombrosa desviación de tan solo un 0.000010 %.
 
-¿Qué hace diferente a este script?
-(Continuo vs. Discreto)Los primeros intentos computacionales de este repositorio se basaban en una Caminata Aleatoria (Random Walk) discreta usando Movimiento Browniano Fraccionario sobre una matriz estática de la Escalera de Cantor. Aunque ese modelo heurístico probó cualitativamente la emergencia de la inercia por sub-difusión, sufría de un severo aliasing geométrico. Los cálculos de punto flotante sobre bordes fractales afilados producían distribuciones de "cola pesada" y explosiones inmanejables de la varianza (singularidades), haciendo que la masa divirgiera.Este script resuelve el problema de la discretización. En lugar de una cuadrícula discreta, emplea el integrador multidimensional adaptativo de Monte Carlo VEGAS para evaluar un hiperespacio continuo. Se apoya en el $F^\alpha$-Calculus de Parvate y Gangal, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$). La rejilla adaptativa de VEGAS descubre fluidamente las regiones de alta impedancia topológica, esquivando las singularidades de los bordes y estabilizando la varianza hacia límites físicos exactos.Cómo ejecutarloAsegúrate de tener instaladas las dependencias necesarias:Bashpip install numpy scipy vegas
+    ¿Qué hace diferente a este script?
+    (Continuo vs. Discreto)Los primeros intentos computacionales de este repositorio se basaban en una Caminata Aleatoria (Random Walk) discreta usando Movimiento Browniano Fraccionario sobre una matriz estática de la Escalera de Cantor. Aunque ese modelo heurístico probó cualitativamente la emergencia de la inercia por sub-difusión, sufría de un severo aliasing geométrico. Los cálculos de punto flotante sobre bordes fractales afilados producían distribuciones de "cola pesada" y explosiones inmanejables de la varianza (singularidades), haciendo que la masa divirgiera.Este script resuelve el problema de la discretización. En lugar de una cuadrícula discreta, emplea el integrador multidimensional adaptativo de Monte Carlo VEGAS para evaluar un hiperespacio continuo. Se apoya en el $F^\alpha$-Calculus de Parvate y Gangal, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$). La rejilla adaptativa de VEGAS descubre fluidamente las regiones de alta impedancia topológica, esquivando las singularidades de los bordes y estabilizando la varianza hacia límites físicos exactos.Cómo ejecutarloAsegúrate de tener instaladas las dependencias necesarias:Bashpip install numpy scipy vegas
 
-Inicia el simulador:Bashpython teu_vegas_ab_initio_mass_emergence.py
+
+
+# Regularización Topológica de la Gravedad Cuántica #
+## `teu_vegas_quantum_gravity.py`: Regularización Topológica de la Gravedad Cuántica
+
+**¿Qué hace este script?**
+Demuestra computacionalmente que la Gravedad Cuántica es finita y renormalizable en 4 dimensiones cuando se asume que el vacío es un atractor fractal de Cantor, eliminando la necesidad de recurrir a la Teoría de Cuerdas o a dimensiones extra.
+
+**¿En qué se diferencia del resto del proyecto?**
+Mientras que los otros motores se centran en el electromagnetismo (anomalía $g-2$) o en el sector electrodébil (masa de bosones y desintegración del muón), este script se enfrenta a la singularidad matemática más grave de la Teoría Cuántica de Campos (QFT): el infinito ultravioleta (UV) no renormalizable de la Relatividad General a escala microscópica.
+
+**¿Qué calcula exactamente?**
+El script somete a prueba el bucle gravitatorio desnudo. En el Modelo Estándar, la autointeracción del gravitón diverge hacia el infinito ($\sim 1/r^4$) a distancias cortas, colapsando las ecuaciones. El código calcula la curvatura integral real del vacío y deriva, de forma pura y ab initio, la Constante de Gravitación Universal de Newton ($G$) estabilizada a partir de la Masa de Planck.
+
+**¿Cómo lo hace?**
+Utiliza el motor de integración estocástica Monte Carlo adaptativo (**VEGAS**) para explorar el hiperespacio en 4D. El algoritmo enfrenta la divergencia infinita de la gravedad cuántica clásica contra la atenuación topológica de la métrica TEU (gobernada por el Jacobiano Fraccionario, la porosidad de Cantor y la fase log-periódica de Moiré). El resultado demuestra que el "cero" fractal ahoga al infinito de la QFT, arrojando un tensor de curvatura finito y recuperando la constante $G$ con una precisión asombrosa respecto al valor de CODATA.
+
+
+# Inicia el simulador:Bashpython teu_vegas_ab_initio_mass_emergence.py
 
 ## ⚙️ Requisitos y Ejecución
 
@@ -130,3 +148,20 @@ Licencia: MIT License
 **Dependencias:** (Instalación de librerías matemáticas)
 ```bash
 pip install numpy scipy
+
+## ⚙️ Instalación y Requisitos (Dependencies)
+
+Para ejecutar las simulaciones estocásticas y los cálculos analíticos de este repositorio, es necesario tener instalado **Python 3.8 o superior**. 
+
+Las dependencias principales del proyecto incluyen herramientas de cálculo científico estándar y motores de integración multidimensional avanzada. Puedes instalar todas las librerías necesarias ejecutando el siguiente comando en tu terminal o consola:
+
+```bash
+pip install numpy scipy matplotlib pandas vegas
+Descripción de los motores utilizados:
+vegas: Algoritmo de integración estocástica Monte Carlo adaptativo. Es el núcleo computacional (Engine) utilizado para evaluar las integrales de volumen en 4D y 8D, y para regularizar las divergencias ultravioletas de la Gravedad Cuántica.
+
+scipy: Utilizado para la evaluación de funciones especiales (como la función Gamma en el Jacobiano Fraccionario) y algoritmos de optimización matemática.
+
+numpy & pandas: Manejo de tensores, matrices dimensionales y procesamiento de datos empíricos.
+
+matplotlib: Generación de gráficas log-log y visualización de la envolvente fractal del polvo de Cantor.
