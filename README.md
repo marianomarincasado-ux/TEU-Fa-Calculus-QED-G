@@ -98,6 +98,16 @@ Utiliza el motor de integración estocástica Monte Carlo adaptativo (**VEGAS**)
 
 ---
 
+
+## CONCLUSION:
+The TEU geometric ansatz reproduces the QED coefficients 
+(Schwinger, Sommese, Laporta, Kinoshita) with a precision 
+of 10^-10 without employing Feynman diagrams.
+📜 Citas y Referencias:
+Este código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
+
+
+
 ## ⚙️ Instalación y Dependencias
 
 Todos los scripts están escritos en **Python 3.8 o superior** y diseñados para ser ligeros, transparentes y auditables. No requieren hardware especializado.
@@ -117,8 +127,3 @@ RESULTS:
 
 > Delta (g-2):             2.0954e-10
 
-CONCLUSION:
-The TEU geometric ansatz reproduces the QED coefficients 
-(Schwinger, Sommese, Laporta, Kinoshita) with a precision 
-of 10^-10 without employing Feynman diagrams.
-📜 Citas y ReferenciasEste código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
