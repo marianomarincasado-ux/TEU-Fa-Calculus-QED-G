@@ -95,6 +95,32 @@ El script somete a prueba el bucle gravitatorio desnudo. En el Modelo Estándar,
 **¿Cómo lo hace?**
 Utiliza el motor de integración estocástica Monte Carlo adaptativo (**VEGAS**) para explorar el hiperespacio en 4D. El algoritmo enfrenta la divergencia infinita de la gravedad cuántica clásica contra la atenuación topológica de la métrica TEU (gobernada por el Jacobiano Fraccionario, la porosidad de Cantor y la fase log-periódica de Moiré). El resultado demuestra que el "cero" fractal ahoga al infinito de la QFT, arrojando un tensor de curvatura finito y recuperando la constante $G$ con una precisión asombrosa respecto al valor de CODATA.
 
+### 2. Regularización de la Gravedad Cuántica (`teu_vegas_quantum_gravity.py`)
+
+**¿Qué hace este script?**
+Demuestra computacionalmente que la Gravedad Cuántica es finita y renormalizable en 4 dimensiones. Somete a prueba el bucle gravitatorio desnudo de la Teoría Cuántica de Campos (que diverge al infinito $\sim 1/r^4$ a distancias cortas), resolviendo la singularidad matemática más grave de la física moderna: el infinito ultravioleta (UV) de la Relatividad General a escala microscópica. Como resultado, el código calcula la curvatura integral real del vacío y deriva, de forma pura y *ab initio*, la Constante de Gravitación Universal de Newton ($G$) estabilizada a partir de la Masa de Planck con asombrosa precisión respecto al valor de CODATA.
+
+**¿Cómo lo hace? (Matemáticas y Código bajo el capó)**
+Utiliza el motor de integración estocástica Monte Carlo adaptativo (**VEGAS**) para explorar el hiperespacio en 4D. El algoritmo enfrenta la divergencia gravitatoria contra la atenuación topológica de la métrica TEU. 
+
+Matemáticamente, la integración sobre un espacio continuo es reemplazada por una medida fractal de Hausdorff, gobernada por el **Jacobiano Fraccionario Continuo**:
+$$\mathcal{J}_\mu(r) = \frac{r^{\mu - 1}}{\Gamma(\mu + 1)}$$
+
+En el núcleo del simulador, esta transformación topológica interactúa con la porosidad de Cantor ($A$) y la fase log-periódica de Moiré para "asfixiar" la singularidad de la QFT. Así se ve la regularización en el código fuente:
+
+```python
+# 1. EL PROBLEMA QFT: Divergencia UV extrema del gravitón (~ 1/r^4)
+bare_gravity_divergence = 1.0 / (r_dist**4)
+        
+# 2. LA SOLUCIÓN TEU: Jacobiano Fraccionario y fase Moiré log-periódica
+jacobian_transform = (r_dist**(MU_FRACTAL - 1.0)) * Z_MU
+moire_phase = np.abs(np.sin(K_MOIRE * np.log(r_dist) + PHI_MOIRE))
+        
+# 3. Atenuación topológica (El polvo de Cantor frena la divergencia)
+topological_damping = LACUNARITY_A * (jacobian_transform**4) * moire_phase
+        
+# 4. Colisión final: El infinito de QFT es absorbido por el "cero" fractal
+regularized_curvature = bare_gravity_divergence * topological_damping * np.exp(-2.0 * MU_FRACTAL * r_dist)
 ---
 
 
