@@ -108,19 +108,19 @@ $$\mathcal{J}_\mu(r) = \frac{r^{\mu - 1}}{\Gamma(\mu + 1)}$$
 
 En el núcleo del simulador, esta transformación topológica interactúa con la porosidad de Cantor ($A$) y la fase log-periódica de Moiré para "asfixiar" la singularidad de la QFT. Así se ve la regularización en el código fuente:
 
-```python
-# 1. EL PROBLEMA QFT: Divergencia UV extrema del gravitón (~ 1/r^4)
-bare_gravity_divergence = 1.0 / (r_dist**4)
-        
-# 2. LA SOLUCIÓN TEU: Jacobiano Fraccionario y fase Moiré log-periódica
-jacobian_transform = (r_dist**(MU_FRACTAL - 1.0)) * Z_MU
-moire_phase = np.abs(np.sin(K_MOIRE * np.log(r_dist) + PHI_MOIRE))
-        
-# 3. Atenuación topológica (El polvo de Cantor frena la divergencia)
-topological_damping = LACUNARITY_A * (jacobian_transform**4) * moire_phase
-        
-# 4. Colisión final: El infinito de QFT es absorbido por el "cero" fractal
-regularized_curvature = bare_gravity_divergence * topological_damping * np.exp(-2.0 * MU_FRACTAL * r_dist)
+         ```python
+         # 1. EL PROBLEMA QFT: Divergencia UV extrema del gravitón (~ 1/r^4)
+         bare_gravity_divergence = 1.0 / (r_dist**4)
+                 
+         # 2. LA SOLUCIÓN TEU: Jacobiano Fraccionario y fase Moiré log-periódica
+         jacobian_transform = (r_dist**(MU_FRACTAL - 1.0)) * Z_MU
+         moire_phase = np.abs(np.sin(K_MOIRE * np.log(r_dist) + PHI_MOIRE))
+                 
+         # 3. Atenuación topológica (El polvo de Cantor frena la divergencia)
+         topological_damping = LACUNARITY_A * (jacobian_transform**4) * moire_phase
+                 
+         # 4. Colisión final: El infinito de QFT es absorbido por el "cero" fractal
+         regularized_curvature = bare_gravity_divergence * topological_damping * np.exp(-2.0 * MU_FRACTAL * r_dist)
 ---
 
 
