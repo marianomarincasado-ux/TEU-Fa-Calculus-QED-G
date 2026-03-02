@@ -68,11 +68,9 @@ Scripts utilizados para calibrar la geometría del vacío aislando las divergenc
         * $n=4$: `-1.91225` (Matches Kinoshita)
         * $n=5$: **`6.60291`** (TEU Topological Limit vs Aoyama's Euclidean 6.80)
 
-<a name="español"></a>
+
 # 🌌 TEU: Topological Electrodynamics of the Universe
 **Continuous Stochastic Simulator & Quantum Gravity Regularization**
-
-🌍 *[Read in English](#english) | [Leer en Español](#español)*
 
 Bienvenido al repositorio oficial de simulaciones estocásticas del modelo **TEU**. Este proyecto proporciona las pruebas computacionales definitivas de que el vacío cuántico se comporta como un atractor fractal de Cantor, permitiendo la emergencia de masa y la regularización de la gravedad cuántica sin necesidad de campos escalares adicionales ni Teoría de Cuerdas.
 
