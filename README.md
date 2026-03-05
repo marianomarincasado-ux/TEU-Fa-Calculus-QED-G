@@ -86,6 +86,13 @@ Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente 
 **¿Qué lo hace diferente? (Continuo vs. Discreto)**
 Los primeros intentos usaban una Caminata Aleatoria (Random Walk) discreta. Aunque probaba cualitativamente la inercia, sufría de *aliasing geométrico* (singularidades en los bordes fractales). Este script resuelve la discretización empleando el integrador continuo de Monte Carlo **VEGAS** sobre un hiperespacio, mapeando analíticamente la métrica euclídea a una medida fractal de Hausdorff a través de un Jacobiano Fraccionario Continuo ($\mathcal{J}_\mu(r)$).Este script proporciona la prueba computacional definitiva para el marco teórico del Universo Electrónico Topológico (TEU). Calcula la masa inercial emergente del electrón ($m_e$) de forma completamente ab initio, partiendo de la Masa de Planck desnuda y aplicando fricción topológica geométrica, eliminando la necesidad de campos escalares (Mecanismo de Higgs) a bajas energías.Al ejecutar una integración vectorizada sobre 1,5 millones de historias de Feynman, el simulador logra recuperar la masa exacta del estándar CODATA para el electrón con una asombrosa desviación de tan solo un 0.000010 %.
 
+### 📊 Analítica Visual: El Kernel de Integración
+El algoritmo VEGAS en este repositorio evalúa las propiedades sub-difusivas de un hiperespacio fractal 4D. Para comprender de forma intuitiva el paisaje topológico que está atravesando el integrador Monte Carlo, hemos mapeado el kernel de integración (la Acción de Dirac Fractal) en el siguiente *dashboard*:
+
+*(Imagen generada a través del repositorio `TEU-Fractal-Figuras`)*
+![Dashboard VEGAS](https://raw.githubusercontent.com/marianomarincasado-ux/TEU-Fractal-Figuras/main/img/TEU_VEGAS_Dashboard.png)
+
+El núcleo brillante representa la resistencia geométrica extrema que encuentra el paquete de ondas cuántico debido a la lagunaridad del polvo de Cantor ($\mu \approx 0.757$). Esta inmensa resistencia estocástica actúa como un filtro exponencial, atenuando la Masa Desnuda de Planck hasta convertirla en la Masa empírica del Electrón.
 
 ### 2. Regularización de la Gravedad Cuántica (`teu_vegas_quantum_gravity.py`)
 **¿Qué hace este script?**
