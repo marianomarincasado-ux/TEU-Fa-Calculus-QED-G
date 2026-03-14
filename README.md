@@ -131,13 +131,6 @@ En el núcleo del simulador, esta transformación topológica interactúa con la
 ---
 
 
-## CONCLUSION:
-The TEU geometric ansatz reproduces the QED coefficients 
-(Schwinger, Sommese, Laporta, Kinoshita) with a precision 
-of 10^-10 without employing Feynman diagrams.
-Citas y Referencias:
-Este código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
-
 ### El Principio de Equivalencia Estocástico ($m_i = m_g$)( teu_equivalence_principle.py)
 
 Este módulo contiene la prueba computacional *ab initio* del **Principio de Equivalencia** dentro del marco del Modelo TEU (Topological Electron Universe). 
@@ -184,6 +177,16 @@ Al ejecutar el motor estocástico, la métrica fractal regulariza la divergencia
 =================================================================
  CONCLUSION: Inertia and Gravity are exactly equivalent. They are
              the static and radiative shadows of the same geometry.
+
+---
+***
+
+## CONCLUSION: 
+The TEU geometric ansatz reproduces the QED coefficients 
+(Schwinger, Sommese, Laporta, Kinoshita) with a precision 
+of 10^-10 without employing Feynman diagrams.
+Citas y Referencias:
+Este código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
 
 
 ## ⚙️ Instalación y Dependencias
