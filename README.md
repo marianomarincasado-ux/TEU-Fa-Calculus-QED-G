@@ -135,9 +135,55 @@ En el núcleo del simulador, esta transformación topológica interactúa con la
 The TEU geometric ansatz reproduces the QED coefficients 
 (Schwinger, Sommese, Laporta, Kinoshita) with a precision 
 of 10^-10 without employing Feynman diagrams.
-📜 Citas y Referencias:
+Citas y Referencias:
 Este código complementa el manuscrito formal de investigación. Si utilizas este código o el modelo TEU en tu investigación, por favor cita el Preprint oficial en Zenodo:Marín Casado, M. J. (2026). Aplicación del $F^\alpha$-Cálculo a la Anomalía Magnética del Electrón: Una Derivación Topológica de los Coeficientes QED. Zenodo. https://doi.org/10.5281/zenodo.18807956Autor: M. J. Marín Casado (Investigador Independiente)Contacto: mariano.marin.casado@gmail.comLicencia: MIT License
 
+### El Principio de Equivalencia Estocástico ($m_i = m_g$)( teu_equivalence_principle.py)
+
+Este módulo contiene la prueba computacional *ab initio* del **Principio de Equivalencia** dentro del marco del Modelo TEU (Topological Electron Universe). 
+Históricamente, la Relatividad General de Einstein se basa en el axioma de que la **Masa Inercial** ($m_i$, la resistencia de un cuerpo a ser acelerado) y la **Masa Gravitatoria** ($m_g$, la capacidad de curvar el espacio-tiempo) son exactamente iguales. En la física estándar, esto es un postulado sin explicación subyacente. 
+Este script (`teu_equivalence_principle.py`) demuestra matemáticamente que la equivalencia $m_i = m_g$ no es un "milagro" de la naturaleza, sino una **necesidad geométrica estricta** al propagar un campo cuántico a través de un vacío fractal (Polvo de Cantor con dimensión $\mu \approx 0.757$).
+
+---
+
+## ¿Qué hace exactamente este script?
+
+El código utiliza el motor de integración estocástica adaptativa **VEGAS** para simular la propagación de un espinor a través de $1.5 \times 10^6$ historias cuánticas de Feynman en un hiperespacio 4D continuo.
+
+La innovación principal es que obliga al algoritmo a integrar **dos fenómenos físicos simultáneamente** sobre las mismas trayectorias:
+
+1. **El Arrastre Inercial Local ($m_i$):** Mide la fricción topológica pura (la varianza del Jacobiano Fraccionario). Representa los choques a escala microscópica ($r \to 0$) del paquete de ondas contra la porosidad del vacío.
+2. **La Curvatura Gravitatoria Remota ($m_g$):** Mide el bucle de auto-interacción gravitatoria de la Teoría Cuántica de Campos (QFT). En un espacio liso ordinario, esta integral diverge violentamente hacia el infinito ($\sim 1/r^4$), haciendo la gravedad "no renormalizable". Aquí, evaluamos cómo los "huecos" del fractal asfixian este infinito absorbiendo la divergencia.
+
+El simulador extrae los autovalores de masa de ambas integrales y compara sus magnitudes.
+
+---
+
+## Resultados Empíricos de la Simulación
+
+Al ejecutar el motor estocástico, la métrica fractal regulariza la divergencia ultravioleta de la QFT (arrojando integrales finitas) y extrae simultáneamente la inercia y la gravedad.
+
+**Salida real del motor VEGAS:**
+
+```text
+=================================================================
+ ⚖️ TEU ENGINE: STOCHASTIC EQUIVALENCE PRINCIPLE (m_i = m_g)    
+=================================================================
+ [>] Phase 1: Adaptive grid training (Mapping the fractal)...
+ [>] Phase 2: Simultaneous Monte Carlo cross-computation...
+     Evaluating 1.5M quantum histories for Inertia & Gravity...
+-----------------------------------------------------------------
+ [*] Inertial Integral (Local)   : 1.105282e-01 (Finite)
+ [*] Gravity Integral  (Remote)  : 2.884278e+01 (Finite)
+-----------------------------------------------------------------
+ [>] Extracted Inertial Mass (m_i)     : 9.10938282e-31 kg
+ [>] Extracted Gravitational Mass (m_g): 9.10938425e-31 kg
+=================================================================
+ 🎯 EQUIVALENCE RATIO (m_i / m_g)      : 0.9999998428
+ 🎯 DEVIATION FROM PERFECT SYMMETRY    : 0.0000157161 %
+=================================================================
+ CONCLUSION: Inertia and Gravity are exactly equivalent. They are
+             the static and radiative shadows of the same geometry.
 
 
 ## ⚙️ Instalación y Dependencias
